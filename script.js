@@ -17,9 +17,19 @@ const colorGeneratePalette = () => {
     color.innerHTML = `<div class="rect-box" style="background: ${randomHex}"></div>
                         <span class="hex-value">${randomHex}</span>`;
     container.appendChild(color);
+
+    color.addEventListener("click", () => copyColor(color, randomHex));
   }
 };
 
 colorGeneratePalette();
+
+const copyColor = (element, hexValue) => {
+  const colorElement = element.querySelector(".hex-value");
+  navigator.clipboard.writeText(hexValue).then(() => {
+    colorElement.innerText = "COPIED";
+    setInterval(() => colorElement.innerText = hexValue, 1000);
+  });
+}
 
 refreshBtn.addEventListener("click", colorGeneratePalette);
