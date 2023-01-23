@@ -3,7 +3,7 @@ const container = document.querySelector(".container");
 const refreshBtn = document.querySelector(".refresh-palette");
 
 // Create how many color palette have
-const maxPaletteBoxes = 32;
+const maxPaletteBoxes = 30;
 
 // Create a function for create color palette
 const colorGeneratePalette = () => {
